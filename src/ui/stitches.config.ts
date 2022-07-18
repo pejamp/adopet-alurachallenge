@@ -9,7 +9,9 @@ export const { styled } = createStitches({
       cream: '#FCF0E3',
       gray: '#737380',
       lightGray: '#BCBCBC',
-      Background: '#F6F6F6',
+      offWhite: '#F6F6F6',
+      background: '#FFFFFF',
+      textWhite: '#FFFFFF',
     },
   },
   media: {

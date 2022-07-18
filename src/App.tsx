@@ -1,10 +1,13 @@
+import { DefaultLayout } from "./components/DefaultLayout"
+import { Footer } from "./components/Footer"
+import { Header } from "./components/Header"
 
 function App() {
 
   return (
-    <div>
-      Adopet
-    </div>
+    <DefaultLayout>
+      content
+    </DefaultLayout>
   )
 }
 

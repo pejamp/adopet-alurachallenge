@@ -3,12 +3,12 @@ import { globalCss } from "@stitches/react";
 export const globalStyles = globalCss({
   '@font-face': [
     {
-      fontFamily: 'HelveticaNeue',
-      src: 'local("HelveticaNeue"), url("fonts/HelveticaNeue.ttc")',
+      fontFamily: 'Poppins',
+      src: 'local("Poppins"), url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap")',
     },
     {
-      fontFamily: 'Bell MT',
-      src: 'local("Bell MT"), url("fonts/BELLB.TTF")',
+      fontFamily: 'IBM Plex Sans',
+      src: 'local("IBM Plex Sans"), url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap")',
     },
   ],
   "*": {
@@ -19,7 +19,7 @@ export const globalStyles = globalCss({
     font: "inherit",
     verticalAlign: "baseline",
     boxSizing: 'border-box', 
-    fontFamily: 'HelveticaNeue, Arial, sans-serif',
+    fontFamily: 'Poppins, IBM Plex Sans, sans-serif',
   },
   "article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section": {
     display: "block",
@@ -30,6 +30,7 @@ export const globalStyles = globalCss({
   body: {
     lineHeight: "1",
     backgroundColor: '$background',
+    fontSize: "16px",
   },
   "ol, ul": {
     listStyle: "none",
