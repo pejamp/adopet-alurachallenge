@@ -11,7 +11,17 @@ export const { styled } = createStitches({
       lightGray: '#BCBCBC',
       offWhite: '#F6F6F6',
       background: '#FFFFFF',
+
       textWhite: '#FFFFFF',
+      textBlue: '#3772FF',
+
+      error: '#FF0000',
+      
+      buttonHover: '#FF9D9E',
+    },
+    fonts: {
+      poppins: 'Poppins',
+      ibmPlexSans: 'IBM Plex Sans',
     },
   },
   media: {

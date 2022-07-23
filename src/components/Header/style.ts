@@ -1,17 +1,22 @@
 import { styled } from "../../ui/stitches.config";
+import backgroundImage from '../../assets/forma-1.png';
 
 export const ContainerHeader = styled('header', {
-  backgroundColor: 'transparent',
-  display: "flex",
-  alignItems: 'center',
+  background: `url(${backgroundImage})`,
+  backgroundPosition: 'top 0 left -1px',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'auto',
+  position: "fixed",
+  width: '100%',
+  height: '295px',
   padding: '3rem',
 });
 
 export const ContentHeader = styled('div', {
   display: "flex",
   gap: '3.625rem',
+  alignItems: 'center',
 });
 
 export const IconHeader = styled('img', {
-
 });

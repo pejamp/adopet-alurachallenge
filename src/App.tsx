@@ -1,13 +1,11 @@
-import { DefaultLayout } from "./components/DefaultLayout"
-import { Footer } from "./components/Footer"
-import { Header } from "./components/Header"
+import { Initial } from "./pages/initial"
+import { Login } from "./pages/login"
+import { Signup } from "./pages/signup"
 
 function App() {
 
   return (
-    <DefaultLayout>
-      content
-    </DefaultLayout>
+    <Login />
   )
 }
 
