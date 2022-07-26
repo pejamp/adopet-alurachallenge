@@ -1,5 +1,5 @@
 import { styled } from "../../ui/stitches.config";
-import IlustrationImage from '../../assets/ilustração.png'
+import IlustrationImage from '../../assets/illustration.png'
 import form2Image from '../../assets/forma-2.png'
 
 export const ContentInitial = styled('div', {
