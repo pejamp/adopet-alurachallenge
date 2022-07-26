@@ -20,3 +20,17 @@ export const ContentHeader = styled('div', {
 
 export const IconHeader = styled('img', {
 });
+
+export const UserHeader = styled('img', {
+  width: '40px',
+  height: '40px',
+  border: '1px solid $green',
+  objectFit: 'cover',
+  borderRadius: '50%',
+});
+
+export const FlexBox = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+});

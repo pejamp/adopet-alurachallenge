@@ -3,13 +3,14 @@ import { Header } from "../Header";
 import { Container, Content } from "./style";
 
 interface DefaultLayoutProps {
-  children?: any
+  children?: any;
+  profileIcon?: any;
 }
 
-export function DefaultLayout({ children }: DefaultLayoutProps) {
+export function DefaultLayout({ children, profileIcon }: DefaultLayoutProps) {
   return (
     <Container>
-      <Header />
+      <Header logged={profileIcon} />
       <Content>
         {children}
       </Content>

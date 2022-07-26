@@ -5,13 +5,14 @@ import LogoImage from '../../assets/logos/full-logo-v2.svg';
 import { Form, Formik } from "formik";
 import { Input } from "../../components/Input";
 import * as Yup from 'yup';
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
+  const navigate = useNavigate();
   const validate = Yup.object({
     email: Yup.string().email('Email inválido').required('Insira seu email'),
     password: Yup.string().required('Insira sua senha'),
   });
-
 
   return (
     <DefaultLayout>
@@ -28,6 +29,7 @@ export function Login() {
           validationSchema={validate}
           onSubmit={values => {
             console.log(values);
+            navigate('/home');
           }}
         >
           {formik => (

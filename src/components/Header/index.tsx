@@ -1,14 +1,27 @@
-import { ContainerHeader, IconHeader, ContentHeader } from "./style";
-import homeIcon from '../../assets/icons/casa.svg';
-import messageIcon from '../../assets/icons/mensagens.svg';
+import { ContainerHeader, IconHeader, ContentHeader, UserHeader, FlexBox } from "./style";
+import HomeIcon from '../../assets/icons/casa.svg';
+import MessageIcon from '../../assets/icons/mensagens.svg';
+import UserImage from '../../assets/usuario.png';
+import { Link } from "react-router-dom";
 
-export function Header() {
+interface HeaderProps {
+  logged?: boolean;
+}
+
+export function Header({ logged }: HeaderProps) {
   return (
     <ContainerHeader> 
-      <ContentHeader>
-        <IconHeader src={homeIcon} alt="home icon" />
-        <IconHeader src={messageIcon} alt="message icon" />
-      </ContentHeader>
+      <FlexBox>
+        <ContentHeader>
+          <Link to={'/home'}>
+            <IconHeader src={HomeIcon} alt="home icon" />
+          </Link>
+          <Link to={'#'}>
+            <IconHeader src={MessageIcon} alt="message icon" />
+          </Link>
+        </ContentHeader>
+        {logged && (<Link to={'#'}><UserHeader src={UserImage} alt="foto de usuário" /></Link>)}
+      </FlexBox>
     </ContainerHeader>
   );
 }

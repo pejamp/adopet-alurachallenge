@@ -12,8 +12,11 @@ export const { styled } = createStitches({
       offWhite: '#F6F6F6',
       background: '#FFFFFF',
 
+      cardBackground: '#F6F6F6',
+
       textWhite: '#FFFFFF',
       textBlue: '#3772FF',
+      textGray: '#737380',
 
       error: '#FF0000',
       

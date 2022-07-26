@@ -5,8 +5,10 @@ import LogoImage from '../../assets/logos/full-logo-v2.svg';
 import { Form, Formik } from "formik";
 import { Input } from "../../components/Input";
 import * as Yup from 'yup';
+import { useNavigate } from "react-router-dom";
 
 export function Signup() {
+  const navigate = useNavigate();
   const validate = Yup.object({
     email: Yup.string().email('Email inválido').required('Email é obrigatório'),
     fullName: Yup.string().min(3, 'Deve ter 3 caracteres ou mais').required('Nome é obrigatório'),
@@ -36,6 +38,7 @@ export function Signup() {
           validationSchema={validate}
           onSubmit={values => {
             console.log(values);
+            navigate('/home');
           }}
         >
           {formik => (
