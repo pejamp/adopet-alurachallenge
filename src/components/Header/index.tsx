@@ -1,7 +1,8 @@
-import { ContainerHeader, IconHeader, ContentHeader, UserHeader, FlexBox } from "./style";
+import { ContainerHeader, IconHeader, ContentHeader, UserHeader, FlexBox, LogoHeader } from "./style";
 import HomeIcon from '../../assets/icons/casa.svg';
 import MessageIcon from '../../assets/icons/mensagens.svg';
 import UserImage from '../../assets/usuario.png';
+import LogoImage from '../../assets/logos/full-logo-v3.svg';
 import { Link } from "react-router-dom";
 
 interface HeaderProps {
@@ -13,6 +14,7 @@ export function Header({ logged }: HeaderProps) {
     <ContainerHeader> 
       <FlexBox>
         <ContentHeader>
+          <LogoHeader src={LogoImage} alt="logo da Adopet" />
           <Link to={'/home'}>
             <IconHeader src={HomeIcon} alt="home icon" />
           </Link>

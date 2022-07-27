@@ -10,7 +10,6 @@ export const ContentInitial = styled('div', {
   paddingTop: '10.5rem',
   gap: '24px',
   background: `url(${IlustrationImage}) bottom -1rem right 79px / 247px no-repeat, url(${form2Image}) center right / auto no-repeat`,
-  backgroundColor: '$blue',
 });
 
 export const IconInitial = styled('img', {

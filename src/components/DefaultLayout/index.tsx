@@ -11,7 +11,7 @@ export function DefaultLayout({ children, profileIcon }: DefaultLayoutProps) {
   return (
     <Container>
       <Header logged={profileIcon} />
-      <Content>
+      <Content color={'initialScreen'}>
         {children}
       </Content>
       <Footer />
