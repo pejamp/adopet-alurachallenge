@@ -1,4 +1,5 @@
 import { styled } from "../../ui/stitches.config";
+import Form2TabletImage from '../../assets/forma-2-tablet.png';
 
 export const ContentHome = styled('div', {
   height: '100%',
@@ -10,6 +11,7 @@ export const ContentHome = styled('div', {
 
   '@desktop': {
     paddingTop: '12.75rem',
+    background: `url(${Form2TabletImage}) bottom 6.25rem right / auto no-repeat`,
   }
 });
 

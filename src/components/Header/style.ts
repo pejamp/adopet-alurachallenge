@@ -3,20 +3,37 @@ import backgroundImage from '../../assets/forma-1.png';
 import backgroundTabletImage from '../../assets/forma-1-tablet.png';
 
 export const ContainerHeader = styled('header', {
-  background: `url(${backgroundImage})`,
-  backgroundPosition: 'top 0 left -1px',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'auto',
   position: "fixed",
   width: '100%',
-  height: '295px',
   padding: '2.5rem 3rem',
+  zIndex: '99999',
+
+  '&::before': {
+    content: '',
+    width: '352px',
+    height: '295px',
+    position: 'absolute',
+    top: '0',
+    left: '-1px',
+    background: `url(${backgroundImage})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'auto',
+
+    '@tablet': {
+      width: '560px',
+      height: '470px',
+      background: `url(${backgroundTabletImage})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'auto',
+    },
+  },
 
   '@tablet': {
-    height: 'auto',
-    background: 'none',
     padding: '3.3rem 3rem',
     position: "absolute",
+    top: '0',
+    left: '0',
+    zIndex: '1',
   },
 
   '@desktop': {
@@ -64,4 +81,6 @@ export const FlexBox = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  zIndex: '9999',
+  position: "relative",
 });

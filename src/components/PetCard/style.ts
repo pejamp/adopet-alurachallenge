@@ -10,6 +10,7 @@ export const CardContainer = styled('article', {
   alignItems: 'center',
   justifyContent: 'center',
   gap: '1rem',
+  zIndex: '9999',
 });
 
 export const CardImage = styled('img', {

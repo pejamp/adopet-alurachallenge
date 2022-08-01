@@ -6,6 +6,7 @@ export const ContainerInput = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
   gap: '4px',
+  zIndex: '9999',
 
   '.error': {
     textAlign: 'left',

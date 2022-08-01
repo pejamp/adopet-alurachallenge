@@ -32,5 +32,15 @@ export const LinkBox = styled('a', {
 
   '&:hover': {
     backgroundColor: '$buttonHover',
+  },
+
+  '@tablet': {
+    width: '344px',
+    height: '48px',
+    fontSize: '18px',
+  },
+
+  '@desktop': {
+    width: '362px',
   }
 });
