@@ -31,12 +31,11 @@ export const Content = styled('div', {
     '@tablet': {
       margin: '0 auto',
       width: '524px',
-      marginBottom: '5.6rem',
+      marginBottom: '2rem',
     },
 
     '@desktop': {
       width: '552px',
-      marginBottom: '2.25rem',
       padding: '2rem 1.875rem',
     }
   }
@@ -65,6 +64,7 @@ export const Text = styled('h1', {
   variants: {
     profile: {
       true: {
+        width: '100%',
         fontWeight: '600',
         fontSize: '20px',
         lineHeight: '24px',

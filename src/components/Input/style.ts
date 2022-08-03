@@ -64,6 +64,9 @@ export const CustomInput = styled('input', {
   outline: 'none',
   background: 'transparent',
   flex: '1',
+  fontSize: '14px',
+  lineHeight: '24px',
+  color: '$textGray',
 
   '&::placeholder': {
     fontFamily: '$poppins',

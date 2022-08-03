@@ -64,6 +64,9 @@ export const CustomTextarea = styled('textarea', {
   background: 'transparent',
   flex: '1',
   resize: 'none',
+  fontSize: '14px',
+  lineHeight: '24px',
+  color: '$textGray',
 
   '&::placeholder': {
     fontFamily: '$poppins',

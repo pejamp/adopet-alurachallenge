@@ -48,6 +48,11 @@ export const ContentHeader = styled('div', {
 });
 
 export const IconHeader = styled('img', {
+  transition: 'all 0.25s ease',
+
+  '&:hover': {
+    opacity: '0.8',
+  }
 });
 
 export const LogoHeader = styled('img', {

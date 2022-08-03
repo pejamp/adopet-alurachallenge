@@ -1,5 +1,5 @@
 import { styled } from "../../ui/stitches.config";
-import UserImage from '../../assets/usuario.png';
+import CameraIcon from '../../assets/icons/photo-camera.png';
 
 export const ContainerInput = styled('div', {
   width: '100%',
@@ -43,6 +43,28 @@ export const ImageBox = styled('div', {
   backgroundColor: '$background',
   position: 'relative',
   overflow: 'hidden',
+  cursor: 'pointer',
+
+  '&::after': {
+    content: '',
+    position: "absolute",
+    top: '0',
+    left: '0',
+    opacity: '0',
+    width: '100%',
+    height: '100%',
+    background: `url(${CameraIcon}) center / 32px no-repeat`,
+    transition: 'all 0.25s ease',
+  },
+  
+  '&:hover': {
+    '&::after': {
+      opacity: '1',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    
+    border: '3px solid $green',
+  }
 });
 
 export const CustomImg = styled('img', {

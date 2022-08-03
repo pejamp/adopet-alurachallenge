@@ -10,7 +10,6 @@ import { ImageUpload } from "../../components/ImageUpload";
 import { useRef } from "react";
 
 export function Profile() {
-  const uploadedImage = useRef() as React.MutableRefObject<HTMLImageElement>;
   const imageUploader = useRef() as React.MutableRefObject<HTMLInputElement>;
   const FILE_SIZE = 160 * 1024;
   const SUPPORTED_FORMATS = [
@@ -36,14 +35,14 @@ export function Profile() {
         <Formik
           initialValues={{
             userImage: '',
-            //fullName: '',
-            //phone: '',
-            //city: '',
-            //about: '',
+            fullName: '',
+            phone: '',
+            city: '',
+            about: '',
           }}
           //validationSchema={validate}
           onSubmit={values => {
-            console.log(values.userImage);
+            console.log(values);
             console.log('submit');
             //navigate('/home');
           }}
@@ -55,7 +54,6 @@ export function Profile() {
                 file={values.userImage}
                 name="userImage" 
                 label="Foto" 
-                imageRef={uploadedImage} 
                 inputRef={imageUploader} 
               />
               <input 
@@ -63,8 +61,7 @@ export function Profile() {
                 ref={imageUploader}
                 type="file" 
                 name="userImage"
-                accept="image/**"
-                multiple={false}
+                accept="image/*"
                 onChange={(event: any) => {setFieldValue("userImage", event.target.files[0])}} 
               />
               <Input secondStyle label="Nome" name="fullName" type="text" placeholder="Insira seu nome completo" />
