@@ -5,7 +5,7 @@ export const ButtonBox = styled('button', {
   alignItems: 'center',
   justifyContent: 'center',
   backgroundColor: '$coral',
-  width: '148px',
+  minWidth: '148px',
   height: '40px',
   borderRadius: '6px',
   fontWeight: '600',
@@ -14,6 +14,10 @@ export const ButtonBox = styled('button', {
 
   '&:hover': {
     backgroundColor: '$buttonHover',
+  },
+
+  '@tablet': {
+    minWidth: '164px',
   }
 });
 
@@ -21,7 +25,7 @@ export const LinkBox = styled('a', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  width: '180px',
+  minWidth: '180px',
   height: '40px',
   backgroundColor: '$coral',
   borderRadius: '6px',
@@ -35,12 +39,12 @@ export const LinkBox = styled('a', {
   },
 
   '@tablet': {
-    width: '344px',
+    minWidth: '344px',
     height: '48px',
     fontSize: '18px',
   },
 
   '@desktop': {
-    width: '362px',
+    minWidth: '362px',
   }
 });

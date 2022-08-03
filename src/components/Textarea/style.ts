@@ -1,6 +1,6 @@
 import { styled } from "../../ui/stitches.config";
 
-export const ContainerInput = styled('div', {
+export const ContainerTextarea = styled('div', {
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
@@ -19,7 +19,7 @@ export const ContainerInput = styled('div', {
     secondStyle: {
       true: {
         alignItems: 'flex-start',
-        gap: '0.5rem',
+        gap: '1rem',
       }
     }
   }
@@ -39,31 +39,31 @@ export const Label = styled('label', {
   }
 });
 
-export const InputBox = styled('div', {
+export const TextareaBox = styled('div', {
   width: '100%',
-  height: '40px',
+  height: '172px',
   borderRadius: '6px',
   backgroundColor: '$offWhite',
   boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.15)',
-  display: 'flex',
-  alignItems: 'center',
   position: 'relative',
+  padding: '1rem',
+  display: 'flex',
 
   variants: {
     secondStyle: {
       true: {
-        height: '48px',
         backgroundColor: '$background',
       }
     }
   }
 });
 
-export const CustomInput = styled('input', {
+export const CustomTextarea = styled('textarea', {
   textAlign: 'center',
   outline: 'none',
   background: 'transparent',
   flex: '1',
+  resize: 'none',
 
   '&::placeholder': {
     fontFamily: '$poppins',
@@ -78,7 +78,6 @@ export const CustomInput = styled('input', {
     secondStyle: {
       true: {
         textAlign: 'left',
-        paddingLeft: '1rem',
 
         '&::placeholder': {
           fontSize: '14px',
@@ -89,19 +88,4 @@ export const CustomInput = styled('input', {
       }
     }
   }
-});
-
-export const HideButton = styled('button', {
-  margin: '0 !important',
-  background: 'transparent',
-  display: 'flex',
-  alignItems: 'center',
-  position: "absolute",
-  right: '0',
-});
-
-export const HideIcon= styled('img', {
-  display: "inline-block",
-  paddingRight: '12px',
-  height: '100%',
 });
