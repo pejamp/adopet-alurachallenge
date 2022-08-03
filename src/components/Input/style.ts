@@ -22,6 +22,10 @@ export const ContainerInput = styled('div', {
         gap: '0.5rem',
       }
     }
+  },
+
+  '@tablet': {
+    gap: '0.5rem',
   }
 });
 
@@ -36,6 +40,14 @@ export const Label = styled('label', {
         color: '$textBlue',
       }
     }
+  },
+
+  '@tablet': {
+    fontSize: '18px',
+  },
+
+  '@desktop': {
+    fontWeight: '600',
   }
 });
 
@@ -75,6 +87,10 @@ export const CustomInput = styled('input', {
     lineHeight: '16px',
     textAlign: 'center',
     color: '$lightGray',
+
+    '@tablet': {
+      fontSize: '14px',
+    }
   },
 
   variants: {

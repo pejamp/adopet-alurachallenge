@@ -18,10 +18,12 @@ export const ContentLogin = styled('div', {
 
   '@tablet': {
     background: `url(${Forma2TabletImage}) bottom 10.25rem right / auto no-repeat`,
+    paddingTop: '15rem',
   },
 
   '@desktop': {
     backgroundPosition: 'bottom 6.25rem right',
+    paddingTop: '8rem',
   },
 
   '&::after': {
@@ -33,12 +35,12 @@ export const ContentLogin = styled('div', {
     position: 'absolute',
     top: '0',
     right: '0',
+    zIndex: '99999',
 
     '@tablet': {
       width: '292px',
       height: '374px',
       background: `url(${PatasTabletImage}) top right / auto no-repeat`,
-      zIndex: '9999',
     },
   
     '@desktop': {
@@ -55,6 +57,22 @@ export const ContentLogin = styled('div', {
     
     '& button': {
       marginTop: '24px',
+    },
+
+    '@tablet': {
+      width: '344px', 
+
+      '& button': {
+        marginTop: '2.5rem',
+      },
+    },
+
+    '@desktop': {
+      width: '500px', 
+
+      '& button': {
+        marginTop: '2rem',
+      }
     }
   },
 });
@@ -63,6 +81,16 @@ export const IconLogin = styled('img', {
   width: '142px',
   height: '34px',
   objectFit: 'contain',
+
+  '@tablet': {
+    width: '250px',
+    height: '62px',
+  },
+
+  '@desktop': {
+    width: '260px',
+    height: '64px',
+  }
 });
 
 export const TextLogin = styled('p', {
@@ -74,6 +102,16 @@ export const TextLogin = styled('p', {
 
   '& + p': {
     marginTop: '8px',
+  },
+
+  '@tablet': {
+    fontSize: '18px',
+    margin: '2.5rem 0',
+  },
+
+  '@desktop': {
+    marginTop: '4rem',
+    marginBottom: '4.5rem',
   }
 });
 

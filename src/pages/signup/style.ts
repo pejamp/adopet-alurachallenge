@@ -19,10 +19,13 @@ export const ContentRegister = styled('div', {
 
   '@tablet': {
     background: `url(${Form2TabletImage}) bottom 10.25rem right / auto no-repeat`,
+    paddingTop: '15rem',
+    gap: '2.5rem',
   },
 
   '@desktop': {
     backgroundPosition: 'bottom 6.25rem right',
+    paddingTop: '8rem',
   },
 
   '&::after': {
@@ -34,12 +37,12 @@ export const ContentRegister = styled('div', {
     position: 'absolute',
     top: '0',
     right: '0',
+    zIndex: '99999',
 
     '@tablet': {
       width: '292px',
       height: '374px',
       background: `url(${PatasTabletImage}) top right / auto no-repeat`,
-      zIndex: '9999',
     },
 
     '@desktop': {
@@ -56,6 +59,23 @@ export const ContentRegister = styled('div', {
 
     '& button': {
       marginTop: '4px',
+    },
+
+    '@tablet': {
+      width: '344px', 
+      gap: '1.5rem',
+
+      '& button': {
+        marginTop: '1rem',
+      },
+    },
+
+    '@desktop': {
+      width: '500px', 
+
+      '& button': {
+        marginTop: '0.5rem',
+      }
     }
   }
 });
@@ -64,6 +84,16 @@ export const IconRegister = styled('img', {
   width: '142px',
   height: '34px',
   objectFit: 'contain',
+
+  '@tablet': {
+    width: '250px',
+    height: '62px',
+  },
+
+  '@desktop': {
+    width: '260px',
+    height: '64px',
+  }
 });
 
 export const TextRegister = styled('p', {
@@ -73,9 +103,22 @@ export const TextRegister = styled('p', {
 
   '& + p': {
     marginTop: '8px',
+  },
+
+  '@tablet': {
+    fontSize: '18px',
+    lineHeight: '26px',
   }
 });
 
 export const TextBox = styled('div', {
   width: '312px',
+
+  '@tablet': {
+    width: '525px',
+  },
+
+  '@desktop': {
+    width: '552px',
+  }
 });

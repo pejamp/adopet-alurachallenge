@@ -18,6 +18,12 @@ export const ButtonBox = styled('button', {
 
   '@tablet': {
     minWidth: '164px',
+    fontSize: '18px',
+  },
+
+  '@desktop': {
+    minWidth: '174px',
+    fontWeight: '700',
   }
 });
 
