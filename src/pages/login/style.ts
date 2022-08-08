@@ -13,12 +13,14 @@ export const ContentLogin = styled('div', {
   paddingTop: '9.75rem',
   paddingLeft: '1.5rem',
   paddingRight: '1.5rem',
+  paddingBottom: '1rem',
   background: `url(${Forma3Image}) bottom 2rem left -1px`,
   backgroundRepeat: 'no-repeat',
 
   '@tablet': {
     background: `url(${Forma2TabletImage}) bottom 10.25rem right / auto no-repeat`,
     paddingTop: '15rem',
+    paddingBottom: '2rem',
   },
 
   '@desktop': {

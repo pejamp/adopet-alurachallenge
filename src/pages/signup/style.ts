@@ -13,6 +13,7 @@ export const ContentRegister = styled('div', {
   paddingTop: '9.75rem',
   paddingLeft: '1.5rem',
   paddingRight: '1.5rem',
+  paddingBottom: '1rem',
   gap: '24px',
   background: `url(${Form3Image}) bottom 2rem left -1px`,
   backgroundRepeat: 'no-repeat',
@@ -21,6 +22,7 @@ export const ContentRegister = styled('div', {
     background: `url(${Form2TabletImage}) bottom 10.25rem right / auto no-repeat`,
     paddingTop: '15rem',
     gap: '2.5rem',
+    paddingBottom: '2rem',
   },
 
   '@desktop': {

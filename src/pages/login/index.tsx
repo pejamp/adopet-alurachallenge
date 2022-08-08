@@ -6,11 +6,13 @@ import { Form, Formik } from "formik";
 import { Input } from "../../components/Input";
 import * as Yup from 'yup';
 import { useNavigate } from "react-router-dom";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 export function Login() {
+  const [dataForm] = useLocalStorage('userFormData', '');
   const navigate = useNavigate();
   const validate = Yup.object({
-    email: Yup.string().email('Email inválido').required('Insira seu email'),
+    email: Yup.string().matches(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Email inválido').required('Insira seu email'),
     password: Yup.string().required('Insira sua senha'),
   });
 
@@ -29,7 +31,17 @@ export function Login() {
           validationSchema={validate}
           onSubmit={values => {
             console.log(values);
-            navigate('/home');
+
+            if (dataForm.email === values.email) {
+              if (dataForm.password === values.password) {
+                //navigate('/home');
+                console.log('Conta existente');
+              } else {
+                console.log('Senha incorreta')
+              }
+            } else {
+              console.log('Email incorreto')
+            }
           }}
         >
           {formik => (
