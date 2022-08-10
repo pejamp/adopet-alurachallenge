@@ -8,8 +8,10 @@ import { Content, Text } from "./style";
 import { Textarea } from "../../components/Textarea";
 import { ImageUpload } from "../../components/ImageUpload";
 import { useRef } from "react";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 export function Profile() {
+  const [dataForm, setDataForm] = useLocalStorage('userFormData', '');
   const imageUploader = useRef() as React.MutableRefObject<HTMLInputElement>;
   const FILE_SIZE = 160 * 1024;
   const SUPPORTED_FORMATS = [
@@ -21,11 +23,12 @@ export function Profile() {
   const validate = Yup.object({
     userImage: Yup.string(),
     fullName: Yup.string().min(3, 'Deve ter 3 caracteres ou mais').required('Nome é obrigatório'),
-    phone: Yup.string().required('Telefone é obrigatório').matches(/(\(?\d{2}\)?\s)?(\d{4,5}\d{4})/g, 'Número de telefone não válido'),
-    city: Yup.string().min(3, 'Deve ter pelo menos 3 caracteres').required('Nome do animal é obrigatória'),
+    phone: Yup.string().matches(/(\(?\d{2}\)?\s)?(\d{4,5}\d{4})/g, 'Número de telefone não válido').required('Telefone é obrigatório'),
+    city: Yup.string().min(3, 'Deve ter pelo menos 3 caracteres').required('Cidade é obrigatório'),
     about: Yup.string().max(180, 'Máximo de 180 caracteres'),
   });
 
+  console.log();
   return (
     <DefaultLayout profileIcon={true}>
       <Content>
@@ -34,16 +37,16 @@ export function Profile() {
         </Text>
         <Formik
           initialValues={{
-            userImage: '',
-            fullName: '',
-            phone: '',
-            city: '',
-            about: '',
+            userImage: dataForm.userImage,
+            fullName: dataForm.fullName,
+            phone: dataForm.phone,
+            city: dataForm.city,
+            about: dataForm.about,
           }}
-          //validationSchema={validate}
+          validationSchema={validate}
           onSubmit={values => {
             console.log(values);
-            console.log('submit');
+            setDataForm(values);
             //navigate('/home');
           }}
         >
@@ -52,16 +55,17 @@ export function Profile() {
               <Text as={'h2'} profile>Perfil</Text>
               <ImageUpload 
                 file={values.userImage}
+                savedFile={dataForm.userImage}
                 name="userImage" 
                 label="Foto" 
-                inputRef={imageUploader} 
+                inputRef={imageUploader}
               />
               <input 
                 hidden
                 ref={imageUploader}
                 type="file" 
-                name="userImage"
-                accept="image/*"
+                //name="userImage"
+                accept="image/**"
                 onChange={(event: any) => {setFieldValue("userImage", event.target.files[0])}} 
               />
               <Input secondStyle label="Nome" name="fullName" type="text" placeholder="Insira seu nome completo" />

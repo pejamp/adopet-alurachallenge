@@ -7,9 +7,12 @@ import { Input } from "../../components/Input";
 import * as Yup from 'yup';
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useState } from "react";
+import { WarningMessage } from "../../components/WarningMessage";
 
 export function Login() {
   const [dataForm] = useLocalStorage('userFormData', '');
+  const [errorLogin, setErrorLogin] = useState('');
   const navigate = useNavigate();
   const validate = Yup.object({
     email: Yup.string().matches(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'Email inválido').required('Insira seu email'),
@@ -34,18 +37,21 @@ export function Login() {
 
             if (dataForm.email === values.email) {
               if (dataForm.password === values.password) {
-                //navigate('/home');
-                console.log('Conta existente');
+                navigate('/home');
               } else {
-                console.log('Senha incorreta')
+                console.log('Senha incorreta');
+                setErrorLogin('password');
               }
             } else {
-              console.log('Email incorreto')
+              console.log('Email incorreto');
+              setErrorLogin('email');
             }
           }}
         >
           {formik => (
             <Form className="form">
+              {errorLogin === 'email' && (<WarningMessage message="Email incorreto" />)}
+              {errorLogin === 'password' && (<WarningMessage message="Senha incorreta" />)}
               <Space>
                 <Input label="Email" name="email" type="text" placeholder="Insira seu email" />
                 <Input label="Senha" name="password" type="password" placeholder="Insira sua senha" />

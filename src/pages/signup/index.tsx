@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 export function Signup() {
-  const [dataForm, setDataForm] = useLocalStorage('userFormData', '');
+  const [setDataForm] = useLocalStorage('userFormData', '');
   const navigate = useNavigate();
   const validate = Yup.object({
     fullName: Yup.string().min(3, 'Deve ter 3 caracteres ou mais').required('Nome é obrigatório'),

@@ -7,29 +7,35 @@ interface InputProps {
   name?: string;
   label: string;
   file: any;
+  savedFile: any;
   inputRef?: any;
   secondStyle?: boolean;
 }
 
-export function ImageUpload({ label, file, ...props }: InputProps) {
+export function ImageUpload({ label, file, savedFile, ...props }: InputProps) {
   // @ts-ignore
   const [field, meta] = useField(props); 
   const [preview, setPreview] = useState(UserImage);
-  
+
+    
   useEffect(() => {
     const reader = new FileReader();
     let isCancel = false;
-
-    if (file) {
-      reader.onload = (e: any) => {
-        const { result } = e.target;
-
-        if (result && !isCancel) {
-          setPreview(result);
-        }
+    
+    
+    reader.onload = (e: any) => {
+      const { result } = e.target;
+      
+      if (result && !isCancel) {
+        setPreview(result);
       }
+    }
+    
+    if (file) {
       reader.readAsDataURL(file);
     }
+
+    //setPreview(savedFile);
 
     return () => {
       isCancel = true;
@@ -38,7 +44,7 @@ export function ImageUpload({ label, file, ...props }: InputProps) {
       }
     }
 
-  }, [file]);
+  }, [file, savedFile]);
 
   return (
     <ContainerInput>

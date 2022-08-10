@@ -6,13 +6,15 @@ import { DefaultLayout } from "../../components/DefaultLayout";
 import { Input } from "../../components/Input";
 import { Content, TextContact } from "./style";
 import { Textarea } from "../../components/Textarea";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 export function Contact() {
+  const [setDataForm] = useLocalStorage('contactData', '');
   const navigate = useNavigate();
   const validate = Yup.object({
     fullName: Yup.string().min(3, 'Deve ter 3 caracteres ou mais').required('Nome é obrigatório'),
-    phone: Yup.string().required('Telefone é obrigatório').matches(/(\(?\d{2}\)?\s)?(\d{4,5}\d{4})/g, 'Número de telefone não válido'),
-    petName: Yup.string().min(3, 'Deve ter pelo menos 3 caracteres').required('Nome do animal é obrigatória'),
+    phone: Yup.string().matches(/(\(?\d{2}\)?\s)?(\d{4,5}\d{4})/g, 'Número de telefone inválido').required('Número de telefone obrigatório'),
+    petName: Yup.string().min(3, 'Deve ter pelo menos 3 caracteres').required('Nome do animal é obrigatório'),
     message: Yup.string().max(180, 'Máximo de 180 caracteres').required('Escreva alguma mensagem'),
   });
 
@@ -31,7 +33,7 @@ export function Contact() {
           }}
           validationSchema={validate}
           onSubmit={values => {
-            console.log(values);
+            setDataForm(values);
             navigate('/home');
           }}
         >
