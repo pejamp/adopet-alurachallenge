@@ -33,7 +33,7 @@ export const InputBox = styled('div', {
 });
 
 export const CustomInput = styled('input', {
-  //display: 'none',
+  display: 'none',
 });
 
 export const ImageBox = styled('div', {

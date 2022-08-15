@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
 function getSavedDataForm(key: any, initialValue: any) {
-  const savedData = JSON.parse(localStorage.getItem(key) as string);
+  const savedData = JSON.parse(localStorage.getItem(key) as any);
 
   if (savedData){
+    console.log(savedData);
     return savedData;
   } else {
     return initialValue;

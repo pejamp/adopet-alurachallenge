@@ -37,7 +37,7 @@ export function Profile() {
         </Text>
         <Formik
           initialValues={{
-            userImage: dataForm.userImage,
+            userImage: '',
             fullName: dataForm.fullName,
             phone: dataForm.phone,
             city: dataForm.city,
@@ -46,6 +46,7 @@ export function Profile() {
           validationSchema={validate}
           onSubmit={values => {
             console.log(values);
+            console.log(values.userImage);
             setDataForm(values);
             //navigate('/home');
           }}
@@ -59,15 +60,16 @@ export function Profile() {
                 name="userImage" 
                 label="Foto" 
                 inputRef={imageUploader}
+                onChange={(event: any) => setFieldValue("userImage", event.target.files[0])}
               />
-              <input 
+              {/* <input 
                 hidden
                 ref={imageUploader}
                 type="file" 
-                //name="userImage"
+                name="userImage"
                 accept="image/**"
                 onChange={(event: any) => {setFieldValue("userImage", event.target.files[0])}} 
-              />
+              /> */}
               <Input secondStyle label="Nome" name="fullName" type="text" placeholder="Insira seu nome completo" />
               <Input secondStyle label="Telefone" name="phone" type="text" placeholder="Insira seu telefone e/ou whatsapp" />
               <Input secondStyle label="Cidade" name="city" type="text" placeholder="Insira sua cidade" />

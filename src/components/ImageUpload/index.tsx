@@ -10,18 +10,21 @@ interface InputProps {
   savedFile: any;
   inputRef?: any;
   secondStyle?: boolean;
+  onChange(value: any): void | Promise<void>;
 }
 
-export function ImageUpload({ label, file, savedFile, ...props }: InputProps) {
+export function ImageUpload({ label, file, savedFile, onChange, ...props }: InputProps) {
   // @ts-ignore
   const [field, meta] = useField(props); 
   const [preview, setPreview] = useState(UserImage);
-
     
   useEffect(() => {
-    const reader = new FileReader();
+    let reader = new FileReader();
     let isCancel = false;
     
+    if (file) {
+      reader.readAsDataURL(file);
+    }
     
     reader.onload = (e: any) => {
       const { result } = e.target;
@@ -30,12 +33,6 @@ export function ImageUpload({ label, file, savedFile, ...props }: InputProps) {
         setPreview(result);
       }
     }
-    
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-
-    //setPreview(savedFile);
 
     return () => {
       isCancel = true;
@@ -44,7 +41,7 @@ export function ImageUpload({ label, file, savedFile, ...props }: InputProps) {
       }
     }
 
-  }, [file, savedFile]);
+  }, [file]);
 
   return (
     <ContainerInput>
@@ -54,6 +51,7 @@ export function ImageUpload({ label, file, savedFile, ...props }: InputProps) {
           <CustomImg src={preview} alt="preview" />
         </ImageBox>
         <SignText>Clique na foto para editar</SignText>
+        <CustomInput name={props.name} type="file" ref={props.inputRef} onChange={onChange} />
       </InputBox>
       <ErrorMessage component="div" name={field.name} className='error' />
     </ContainerInput>
