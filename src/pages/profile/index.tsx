@@ -7,11 +7,12 @@ import { Input } from "../../components/Input";
 import { Content, Text } from "./style";
 import { Textarea } from "../../components/Textarea";
 import { ImageUpload } from "../../components/ImageUpload";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 export function Profile() {
   const [dataForm, setDataForm] = useLocalStorage('userFormData', '');
+  const [selectedFile, setSelectedFile] = useState();
   const imageUploader = useRef() as React.MutableRefObject<HTMLInputElement>;
   const FILE_SIZE = 160 * 1024;
   const SUPPORTED_FORMATS = [
@@ -28,7 +29,6 @@ export function Profile() {
     about: Yup.string().max(180, 'Máximo de 180 caracteres'),
   });
 
-  console.log();
   return (
     <DefaultLayout profileIcon={true}>
       <Content>
@@ -37,7 +37,7 @@ export function Profile() {
         </Text>
         <Formik
           initialValues={{
-            userImage: '',
+            userImage: dataForm.userImage,
             fullName: dataForm.fullName,
             phone: dataForm.phone,
             city: dataForm.city,
@@ -46,7 +46,6 @@ export function Profile() {
           validationSchema={validate}
           onSubmit={values => {
             console.log(values);
-            console.log(values.userImage);
             setDataForm(values);
             //navigate('/home');
           }}
@@ -55,21 +54,25 @@ export function Profile() {
             <Form className="form">
               <Text as={'h2'} profile>Perfil</Text>
               <ImageUpload 
-                file={values.userImage}
+                file={selectedFile}
                 savedFile={dataForm.userImage}
                 name="userImage" 
                 label="Foto" 
                 inputRef={imageUploader}
-                onChange={(event: any) => setFieldValue("userImage", event.target.files[0])}
+                onChange={(event: any) => {
+                  const files =  event.target.files;
+                  const file = files[0];
+                  let reader = new FileReader();
+
+                  reader.readAsDataURL(file);
+
+                  reader.onload = (e: any) => {
+                    setFieldValue("userImage", e.target.result);
+                  }
+
+                  setSelectedFile(file);
+                }}
               />
-              {/* <input 
-                hidden
-                ref={imageUploader}
-                type="file" 
-                name="userImage"
-                accept="image/**"
-                onChange={(event: any) => {setFieldValue("userImage", event.target.files[0])}} 
-              /> */}
               <Input secondStyle label="Nome" name="fullName" type="text" placeholder="Insira seu nome completo" />
               <Input secondStyle label="Telefone" name="phone" type="text" placeholder="Insira seu telefone e/ou whatsapp" />
               <Input secondStyle label="Cidade" name="city" type="text" placeholder="Insira sua cidade" />

@@ -19,29 +19,33 @@ export function ImageUpload({ label, file, savedFile, onChange, ...props }: Inpu
   const [preview, setPreview] = useState(UserImage);
     
   useEffect(() => {
-    let reader = new FileReader();
     let isCancel = false;
-    
+    let fileReader = new FileReader();
+
     if (file) {
-      reader.readAsDataURL(file);
-    }
-    
-    reader.onload = (e: any) => {
-      const { result } = e.target;
-      
-      if (result && !isCancel) {
-        setPreview(result);
+      fileReader.onload = (e: any) => {
+        const { result } = e.target;
+        
+        if (result && !isCancel) {
+          setPreview(result);
+        }
       }
+
+      fileReader.readAsDataURL(file);
+    }
+
+    if (savedFile) {
+      setPreview(savedFile);
     }
 
     return () => {
       isCancel = true;
-      if (reader && reader.readyState === 1) {
-        reader.abort();
+      if (fileReader && fileReader.readyState === 1) {
+        fileReader.abort();
       }
-    }
+    }    
 
-  }, [file]);
+  }, [file, savedFile]);
 
   return (
     <ContainerInput>
@@ -51,7 +55,7 @@ export function ImageUpload({ label, file, savedFile, onChange, ...props }: Inpu
           <CustomImg src={preview} alt="preview" />
         </ImageBox>
         <SignText>Clique na foto para editar</SignText>
-        <CustomInput name={props.name} type="file" ref={props.inputRef} onChange={onChange} />
+        <CustomInput name={props.name} type="file" accept="image/*" ref={props.inputRef} onChange={onChange} />
       </InputBox>
       <ErrorMessage component="div" name={field.name} className='error' />
     </ContainerInput>

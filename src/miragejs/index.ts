@@ -1,6 +1,10 @@
-import { createServer } from "miragejs";
+import { createServer, Model } from "miragejs";
 
 createServer({
+  models: {
+    users: Model,
+  },
+  
   routes() {
     this.namespace = "api";
     this.urlPrefix = 'http://localhost:3000';
@@ -89,6 +93,6 @@ createServer({
       }
     ],
     { timing: 4000 }, 
-    )
+    );
   }
 })
