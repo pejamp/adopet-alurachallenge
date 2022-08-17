@@ -4,7 +4,6 @@ function getSavedDataForm(key: any, initialValue: any) {
   const savedData = JSON.parse(localStorage.getItem(key) as any);
 
   if (savedData){
-    console.log(savedData);
     return savedData;
   } else {
     return initialValue;

@@ -28,7 +28,7 @@ export function PetCard(props: PetSourceProps) {
         <CardText space="bottom30">{props.source.features}</CardText>
 
         <CardText size="small">{props.source.city}</CardText>
-        <Link to={'#'} style={{ textDecorationLine: 'none' }}><CardLink href={props.source.contact}>Falar com responsável</CardLink></Link>
+        <Link to={'/contact'} style={{ textDecorationLine: 'none' }}><CardLink href={props.source.contact}>Falar com responsável</CardLink></Link>
       </CardInfo>
     </CardContainer>
   );

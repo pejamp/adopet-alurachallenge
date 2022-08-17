@@ -70,6 +70,7 @@ export const UserHeader = styled('img', {
   border: '1px solid $green',
   objectFit: 'cover',
   borderRadius: '50%',
+  overflow: "hidden",
 
   '@tablet': {
     width: '48px',

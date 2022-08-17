@@ -9,7 +9,6 @@ export function Home() {
   const url = "/api/pets";
 
   function getPets() {
-
     axios.get(url)
       .then(response => setPets(response.data))
       .catch(error => console.error(error))

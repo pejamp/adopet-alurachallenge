@@ -33,17 +33,13 @@ export function Login() {
           }}
           validationSchema={validate}
           onSubmit={values => {
-            console.log(values);
-
             if (dataForm.email === values.email) {
               if (dataForm.password === values.password) {
                 navigate('/home');
               } else {
-                console.log('Senha incorreta');
                 setErrorLogin('password');
               }
             } else {
-              console.log('Email incorreto');
               setErrorLogin('email');
             }
           }}

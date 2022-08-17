@@ -14,7 +14,7 @@ export function Profile() {
   const [dataForm, setDataForm] = useLocalStorage('userFormData', '');
   const [selectedFile, setSelectedFile] = useState();
   const imageUploader = useRef() as React.MutableRefObject<HTMLInputElement>;
-  const FILE_SIZE = 160 * 1024;
+  //const FILE_SIZE = 240 * 1024;
   const SUPPORTED_FORMATS = [
     "image/jpg",
     "image/jpeg",
@@ -22,7 +22,7 @@ export function Profile() {
   ];
   const navigate = useNavigate();
   const validate = Yup.object({
-    userImage: Yup.string(),
+    userImage: Yup.mixed(),
     fullName: Yup.string().min(3, 'Deve ter 3 caracteres ou mais').required('Nome é obrigatório'),
     phone: Yup.string().matches(/(\(?\d{2}\)?\s)?(\d{4,5}\d{4})/g, 'Número de telefone não válido').required('Telefone é obrigatório'),
     city: Yup.string().min(3, 'Deve ter pelo menos 3 caracteres').required('Cidade é obrigatório'),
@@ -45,9 +45,8 @@ export function Profile() {
           }}
           validationSchema={validate}
           onSubmit={values => {
-            console.log(values);
             setDataForm(values);
-            //navigate('/home');
+            navigate('/home');
           }}
         >
           {({ values, setFieldValue }) => (
