@@ -1,4 +1,4 @@
-import { Form, Formik } from "formik";
+import { Form, Formik, FormikHelpers } from "formik";
 import * as Yup from 'yup';
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
@@ -44,8 +44,15 @@ export function Profile() {
             about: dataForm.about,
           }}
           validationSchema={validate}
-          onSubmit={values => {
-            setDataForm(values);
+          onSubmit={(values) => {
+            const updatedForm: any = {...dataForm};
+            updatedForm.userImage = values.userImage;
+            updatedForm.fullName = values.fullName;
+            updatedForm.phone = values.phone;
+            updatedForm.city = values.city;
+            updatedForm.about = values.about;
+            
+            setDataForm(updatedForm);
             navigate('/home');
           }}
         >
@@ -66,10 +73,10 @@ export function Profile() {
                   reader.readAsDataURL(file);
 
                   reader.onload = (e: any) => {
-                    setFieldValue("userImage", e.target.result);
+                    setFieldValue("userImage", reader.result);
+                    setSelectedFile(file);
                   }
 
-                  setSelectedFile(file);
                 }}
               />
               <Input secondStyle label="Nome" name="fullName" type="text" placeholder="Insira seu nome completo" />

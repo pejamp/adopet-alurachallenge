@@ -18,9 +18,10 @@ export function Header({ logged }: HeaderProps) {
   useEffect(() => {
     const { userImage } = dataForm;
 
-    if (dataForm) {
+    if (userImage) {
       setProfileImage(userImage);
     }
+
   }, [dataForm]);
 
   return (

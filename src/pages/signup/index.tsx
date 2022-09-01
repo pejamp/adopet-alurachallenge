@@ -2,14 +2,22 @@ import { Button } from "../../components/Button";
 import { DefaultLayout } from "../../components/DefaultLayout";
 import { ContentRegister, IconRegister, TextBox, TextRegister } from "./style";
 import LogoImage from '../../assets/logos/full-logo-v2.svg';
-import { Form, Formik } from "formik";
+import { Form, Formik, FormikHelpers } from "formik";
 import { Input } from "../../components/Input";
 import * as Yup from 'yup';
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
+interface Values {
+  fullName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+
 export function Signup() {
-  const [setDataForm] = useLocalStorage('userFormData', '');
+  const [_,setDataForm] = useLocalStorage('userFormData', '');
   const navigate = useNavigate();
   const validate = Yup.object({
     fullName: Yup.string().min(3, 'Deve ter 3 caracteres ou mais').required('Nome é obrigatório'),
@@ -44,9 +52,12 @@ export function Signup() {
             confirmPassword: '',
           }}
           validationSchema={validate}
-          onSubmit={values => {
-            setDataForm(values);
-            navigate('/home');
+          onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
+            setTimeout(() => {
+              setDataForm(values);
+              setSubmitting(false);
+              navigate('/home');
+            }, 0);
           }}
         >
           {formik => (

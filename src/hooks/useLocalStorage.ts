@@ -17,7 +17,7 @@ export function useLocalStorage(key: any, initialValue: any) {
 
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(dataForm));
-  }, [dataForm, key])
+  }, [dataForm]);
 
   return [dataForm, setDataForm];
 }
