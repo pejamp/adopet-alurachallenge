@@ -29,10 +29,10 @@ export function Header({ logged }: HeaderProps) {
       <FlexBox>
         <ContentHeader>
           <LogoHeader src={LogoImage} alt="logo da Adopet" />
-          <Link to={'/home'}>
+          <Link to={dataForm.email ? '/home' : ''}>
             <IconHeader src={HomeIcon} alt="home icon" />
           </Link>
-          <Link to={'/contact'}>
+          <Link to={dataForm.email ? '/contact' : ''}>
             <IconHeader src={MessageIcon} alt="message icon" />
           </Link>
         </ContentHeader>

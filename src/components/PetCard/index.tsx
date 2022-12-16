@@ -1,34 +1,25 @@
 import { CardContainer, CardImage, CardInfo, CardLink, CardText, CardTitle } from "./style";
 import { Link } from "react-router-dom";
-
-type PetProps = {
-  image: string;
-  name: string;
-  age: string;
-  size: string;
-  features: string;
-  city: string;
-  contact: string;
-}
+import { PetProps } from "../../types/pet-type";
 
 interface PetSourceProps {
   source: PetProps;
 }
 
-export function PetCard(props: PetSourceProps) {
+export function PetCard({ source }: PetSourceProps) {
   return (
     <CardContainer>
-      <CardImage src={props.source.image} alt={props.source.name} />
+      <CardImage src={source.image} alt={source.name} />
 
       <CardInfo>
-        <CardTitle>{props.source.name}</CardTitle>
+        <CardTitle>{source.name}</CardTitle>
 
-        <CardText>{props.source.age}</CardText>
-        <CardText>{props.source.size}</CardText>
-        <CardText space="bottom30">{props.source.features}</CardText>
+        <CardText>{source.age}</CardText>
+        <CardText>{source.size}</CardText>
+        <CardText space="bottom30">{source.features}</CardText>
 
-        <CardText size="small">{props.source.city}</CardText>
-        <Link to={'/contact'} style={{ textDecorationLine: 'none' }}><CardLink href={props.source.contact}>Falar com responsável</CardLink></Link>
+        <CardText size="small">{source.city}</CardText>
+        <Link to={'/contact'} style={{ textDecorationLine: 'none' }}><CardLink>Falar com responsável</CardLink></Link>
       </CardInfo>
     </CardContainer>
   );

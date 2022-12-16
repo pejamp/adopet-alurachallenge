@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
-interface Values {
+interface FormProps {
   fullName: string;
   email: string;
   password: string;
@@ -52,7 +52,7 @@ export function Signup() {
             confirmPassword: '',
           }}
           validationSchema={validate}
-          onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
+          onSubmit={(values: FormProps, { setSubmitting }: FormikHelpers<FormProps>) => {
             setTimeout(() => {
               setDataForm(values);
               setSubmitting(false);

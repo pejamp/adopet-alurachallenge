@@ -19,6 +19,11 @@ export const CardList = styled('div', {
   display: 'grid',
   gap: '1rem',
 
+  '&:has(article:hover) article:not(:hover)': {
+    opacity: '0.6',
+    scale: '0.98',
+  },
+
   '@tablet': {
     gridTemplateColumns: '1fr 1fr',
     padding: '0 2rem 2rem',

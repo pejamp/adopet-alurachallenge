@@ -2,9 +2,20 @@ import { DefaultLayout } from "../../components/DefaultLayout";
 import { ContentInitial, FlexBox, IconInitial, TextInitial, TitleInitial } from "./style";
 import LogoIcon from "../../assets/logos/full-logo-v1.svg";
 import { Button } from "../../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useEffect } from "react";
 
 export function Initial() {
+  const [dataForm] = useLocalStorage('userFormData', '');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(dataForm.email) {
+      navigate('/home');
+    }
+  }, []);
+  
   return (
     <DefaultLayout>
       <ContentInitial>

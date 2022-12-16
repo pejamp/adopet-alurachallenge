@@ -5,7 +5,6 @@ import { Initial } from "./pages/initial"
 import { Login } from "./pages/login"
 import { Profile } from "./pages/profile"
 import { Signup } from "./pages/signup"
-import './miragejs';
 
 function App() {
 

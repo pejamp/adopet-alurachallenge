@@ -1,4 +1,4 @@
-import { Form, Formik, FormikHelpers } from "formik";
+import { Form, Formik } from "formik";
 import * as Yup from 'yup';
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
@@ -14,12 +14,6 @@ export function Profile() {
   const [dataForm, setDataForm] = useLocalStorage('userFormData', '');
   const [selectedFile, setSelectedFile] = useState();
   const imageUploader = useRef() as React.MutableRefObject<HTMLInputElement>;
-  //const FILE_SIZE = 240 * 1024;
-  const SUPPORTED_FORMATS = [
-    "image/jpg",
-    "image/jpeg",
-    "image/png"
-  ];
   const navigate = useNavigate();
   const validate = Yup.object({
     userImage: Yup.mixed(),

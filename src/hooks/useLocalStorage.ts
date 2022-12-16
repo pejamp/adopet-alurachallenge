@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function getSavedDataForm(key: any, initialValue: any) {
+function getSavedDataForm(key: string, initialValue: any) {
   const savedData = JSON.parse(localStorage.getItem(key) as any);
 
   if (savedData){
@@ -10,7 +10,7 @@ function getSavedDataForm(key: any, initialValue: any) {
   }
 }
 
-export function useLocalStorage(key: any, initialValue: any) {
+export function useLocalStorage(key: string, initialValue: any) {
   const [dataForm, setDataForm] = useState(() => {
     return getSavedDataForm(key, initialValue);
   });

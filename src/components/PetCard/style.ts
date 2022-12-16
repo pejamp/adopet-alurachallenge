@@ -11,6 +11,7 @@ export const CardContainer = styled('article', {
   justifyContent: 'center',
   gap: '1rem',
   zIndex: '9999',
+  transition: 'all 0.25s ease-in-out',
 });
 
 export const CardImage = styled('img', {
@@ -50,7 +51,7 @@ export const CardText = styled('span', {
   }
 });
 
-export const CardLink = styled('a', {
+export const CardLink = styled('span', {
   display: 'flex',
   alignItems: 'center',
   fontSize: '10px',

@@ -29,6 +29,6 @@ export const { styled } = createStitches({
   },
   media: {
     tablet: '(min-width: 560px)', 
-    desktop: '(min-width: 1024px)', 
+    desktop: '(min-width: 1200px)', 
   }
 });

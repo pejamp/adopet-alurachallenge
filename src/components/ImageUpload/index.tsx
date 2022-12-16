@@ -1,5 +1,5 @@
 import { useField, ErrorMessage } from "formik";
-import { InputHTMLAttributes, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ContainerInput, CustomImg, CustomInput, ImageBox, InputBox, Label, SignText } from "./style";
 import UserImage from '../../assets/usuario.png';
 
