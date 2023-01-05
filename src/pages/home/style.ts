@@ -17,6 +17,7 @@ export const ContentHome = styled('div', {
 
 export const CardList = styled('div', {
   display: 'grid',
+  height: '100%',
   gap: '1rem',
 
   '&:has(article:hover) article:not(:hover)': {
