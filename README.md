@@ -1,6 +1,6 @@
 <h1 align="center">
     <br>
-    <img src="./src/assets/full-logo-v2.svg" width="260px" alt="logo adopet">
+    <img src="./src/assets/logos/full-logo-v2.svg" width="260px" alt="logo adopet">
 </h1>
 
 <h4 align="center">
@@ -17,7 +17,7 @@
     <img alt="AluraGeek" src="./src/assets/Capa.png" />
 </h1>
 
-# Adopet <img src="./src/assets/small-logo-v2.svg" width="28" alt="logo icon">
+# Adopet <img src="./src/assets/logos/small-logo-v2.svg" width="28" alt="logo icon">
 A empresa AdoPet têm como objetivo fazer o intermédio entre adotantes de animais e ONGs que possuem foco de retirar animais da rua. 
 
 ## 🧪 Tecnologias
