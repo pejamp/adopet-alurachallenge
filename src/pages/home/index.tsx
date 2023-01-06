@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { DefaultLayout } from "../../components/DefaultLayout";
 import { PetCard } from "../../components/PetCard";
 import { CardList, ContentHome, TextHome } from "./style";
@@ -10,34 +9,41 @@ import { Loading } from "../../components/Loading";
 export function Home() {
   const [pets, setPets] = useState([] as any);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function getPets() {
+    setIsLoading(true);
+
     const { data, error } = await supabase.from('pets').select('*');
-    console.log(error);
-    if (error) {
-      setIsLoading(true);
+   
+    if (!error) {
+      setPets(data);
+      setIsLoading(false);
+    } else {
+      setErrorMessage(error.message);
+      setIsLoading(false);
     }
-    
-    setPets(data);
   }
 
   useEffect(() => {
     getPets();
   }, []);
   
-  
   return (
     <DefaultLayout profileIcon={true}>
       <ContentHome>
         <TextHome>Olá! Veja os amigos disponíveis para adoção!</TextHome>
         <CardList>
-          { !isLoading ? pets.map((pet: PetProps) => (
-            <PetCard key={pet.id} source={pet} />
-          )) : 
-            <Loading />
+          {errorMessage && <div>{errorMessage}</div>}
+          {isLoading ? <Loading /> 
+            : 
+            pets.map((pet: PetProps) => (
+              <PetCard key={pet.id} source={pet} />
+            ))
           }
         </CardList>
       </ContentHome>
     </DefaultLayout>
   );
 }
+

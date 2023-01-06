@@ -14,8 +14,8 @@ const spinner = keyframes({
 export const LoadingSpinner = styled("div", {
   width: '50px',
   height: '50px',
-  border: '5px solid $lightGray',
-  borderTop: '5px solid $green',
+  border: '6px solid $lightGray',
+  borderTop: '6px solid $green',
   borderRadius: '100%',
   animation: `${spinner} 1.5s linear infinite`,
 });
